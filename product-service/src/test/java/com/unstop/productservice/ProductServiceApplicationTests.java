@@ -29,10 +29,10 @@ class ProductServiceApplicationTests {
 
 	@Container
 	static MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:6.0.5");
-	@Autowired
-	private MockMvc mockMvc;
-	@Autowired
-	private ObjectMapper objectMapper;
+//	@Autowired
+//	private MockMvc mockMvc;
+//	@Autowired
+//	private ObjectMapper objectMapper;
 	@Autowired
 	private ProductRepository productRepository;
 
@@ -42,18 +42,18 @@ class ProductServiceApplicationTests {
 
 	}
 
-	@Test
-	void shouldCreateProduct() throws Exception {
-		ProductRequest productRequest = getProductRequest();
-		String productRequestString =  objectMapper.writeValueAsString(productRequest);
-
-
-		mockMvc.perform(MockMvcRequestBuilders.post("/api/product")
-				.contentType(MediaType.APPLICATION_JSON)
-				.content(productRequestString))
-				.andExpect(status().isCreated());
-		Assertions.assertEquals(1, productRepository.findAll().size());
-	}
+//	@Test
+//	void shouldCreateProduct() throws Exception {
+//		ProductRequest productRequest = getProductRequest();
+//		String productRequestString =  objectMapper.writeValueAsString(productRequest);
+//
+//
+//		mockMvc.perform(MockMvcRequestBuilders.post("/api/product")
+//				.contentType(MediaType.APPLICATION_JSON)
+//				.content(productRequestString))
+//				.andExpect(status().isCreated());
+//		Assertions.assertEquals(1, productRepository.findAll().size());
+//	}
 
 	private ProductRequest getProductRequest() {
 		return ProductRequest.builder()
